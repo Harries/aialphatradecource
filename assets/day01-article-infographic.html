@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>为什么90%的人做数字货币最后亏钱</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      background: #040708;
+      color: #f7f1dd;
+    }
+
+    .poster {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 62% 28%, rgba(194, 42, 28, 0.28), transparent 28%),
+        radial-gradient(circle at 78% 92%, rgba(206, 151, 48, 0.20), transparent 27%),
+        linear-gradient(115deg, #080b0c 0%, #101516 42%, #071011 100%);
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.30;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    }
+
+    .poster::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.42), transparent 38%, rgba(0,0,0,0.22)),
+        linear-gradient(0deg, rgba(0,0,0,0.58), transparent 34%, rgba(0,0,0,0.12));
+      pointer-events: none;
+    }
+
+    .noise {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0.12;
+      background:
+        repeating-radial-gradient(circle at 18% 20%, rgba(255,255,255,0.9) 0 1px, transparent 1px 5px);
+      mix-blend-mode: overlay;
+    }
+
+    .candles {
+      position: absolute;
+      left: 560px;
+      top: 24px;
+      width: 660px;
+      height: 315px;
+      z-index: 2;
+      opacity: 0.82;
+    }
+
+    .candle {
+      position: absolute;
+      bottom: var(--b);
+      left: var(--x);
+      width: 10px;
+      height: var(--h);
+      border-radius: 2px;
+      background: var(--color);
+      box-shadow: 0 0 14px var(--glow);
+    }
+
+    .candle::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: -24px;
+      width: 2px;
+      height: calc(var(--h) + 48px);
+      background: var(--color);
+      opacity: 0.65;
+    }
+
+    .crash-line {
+      position: absolute;
+      left: 600px;
+      top: 36px;
+      width: 700px;
+      height: 360px;
+      z-index: 3;
+      filter: drop-shadow(0 0 16px rgba(255, 43, 24, 0.9));
+    }
+
+    .crash-line .segment {
+      position: absolute;
+      height: 9px;
+      border-radius: 99px;
+      background: #ff2c20;
+      transform-origin: left center;
+    }
+
+    .headline {
+      position: absolute;
+      left: 38px;
+      top: 24px;
+      z-index: 8;
+      width: 690px;
+      line-height: 0.98;
+      letter-spacing: 0;
+      text-shadow: 0 8px 24px rgba(0,0,0,0.68);
+    }
+
+    .headline .white {
+      display: block;
+      font-size: 116px;
+      font-weight: 950;
+      color: #f5f2ea;
+    }
+
+    .headline .gold {
+      display: block;
+      margin-top: 16px;
+      font-size: 126px;
+      font-weight: 950;
+      color: #f0c329;
+    }
+
+    .headline .tail {
+      display: block;
+      margin-top: 14px;
+      font-size: 72px;
+      font-weight: 950;
+      color: #f5f2ea;
+    }
+
+    .red-ribbon {
+      position: absolute;
+      left: 42px;
+      top: 405px;
+      z-index: 8;
+      width: 745px;
+      padding: 16px 30px 18px;
+      font-size: 34px;
+      font-weight: 850;
+      color: #ffffff;
+      background:
+        linear-gradient(90deg, rgba(156, 18, 12, 0.98), rgba(156, 18, 12, 0.72), transparent);
+      border-left: 6px solid #e53f31;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+    }
+
+    .pills {
+      position: absolute;
+      left: 62px;
+      top: 478px;
+      z-index: 8;
+      display: flex;
+      gap: 18px;
+    }
+
+    .pill {
+      min-width: 150px;
+      padding: 14px 22px;
+      border: 1px solid rgba(135, 180, 212, 0.48);
+      border-radius: 22px;
+      color: #d8e8f2;
+      background: rgba(18, 34, 45, 0.76);
+      font-size: 24px;
+      font-weight: 650;
+      text-align: center;
+      box-shadow: inset 0 0 24px rgba(96, 172, 219, 0.12);
+    }
+
+    .trader {
+      position: absolute;
+      left: 800px;
+      top: 250px;
+      z-index: 6;
+      width: 250px;
+      height: 290px;
+      filter: drop-shadow(0 30px 36px rgba(0,0,0,0.75));
+    }
+
+    .head {
+      position: absolute;
+      left: 76px;
+      top: 0;
+      width: 98px;
+      height: 112px;
+      border-radius: 46% 46% 48% 48%;
+      background: linear-gradient(#281d18, #120d0b);
+      box-shadow: inset 0 -18px 20px rgba(0,0,0,0.45);
+    }
+
+    .hair {
+      position: absolute;
+      left: 58px;
+      top: -18px;
+      width: 136px;
+      height: 74px;
+      border-radius: 54% 55% 35% 34%;
+      background: #080807;
+      transform: rotate(-5deg);
+    }
+
+    .body {
+      position: absolute;
+      left: 38px;
+      top: 108px;
+      width: 178px;
+      height: 172px;
+      border-radius: 40px 40px 26px 26px;
+      background: linear-gradient(130deg, #20252a, #090b0e);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .arm-left,
+    .arm-right {
+      position: absolute;
+      top: 54px;
+      width: 46px;
+      height: 154px;
+      border-radius: 24px;
+      background: linear-gradient(#1b2025, #080a0c);
+    }
+
+    .arm-left {
+      left: 42px;
+      transform: rotate(38deg);
+    }
+
+    .arm-right {
+      right: 42px;
+      transform: rotate(-38deg);
+    }
+
+    .phone {
+      position: absolute;
+      left: 1110px;
+      top: 280px;
+      z-index: 7;
+      width: 205px;
+      height: 325px;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #181d20, #050606);
+      border: 3px solid rgba(196, 183, 149, 0.42);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.68), inset 0 0 0 8px rgba(255,255,255,0.03);
+      padding: 32px 24px;
+    }
+
+    .phone-title {
+      font-size: 20px;
+      color: #f8f2df;
+      font-weight: 700;
+    }
+
+    .phone-sub {
+      margin-top: 22px;
+      color: #9da8a5;
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .loss {
+      margin-top: 18px;
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 900;
+      color: #f24332;
+    }
+
+    .liquidate {
+      margin-top: 24px;
+      padding: 13px 0;
+      border-radius: 10px;
+      background: #742418;
+      color: #ffc6ae;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .coin {
+      position: absolute;
+      left: 1010px;
+      top: 570px;
+      z-index: 8;
+      width: 174px;
+      height: 174px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 34% 28%, #fff3a6, transparent 12%),
+        radial-gradient(circle, #f7c94b 0%, #bf7620 62%, #593511 100%);
+      border: 10px solid #f8d977;
+      box-shadow: 0 0 34px rgba(241, 181, 54, 0.45), 0 24px 42px rgba(0,0,0,0.5);
+    }
+
+    .coin::before {
+      content: "币";
+      position: absolute;
+      inset: 16px;
+      display: grid;
+      place-items: center;
+      border: 5px dashed rgba(92, 54, 14, 0.7);
+      border-radius: 50%;
+      color: #5d350d;
+      font-size: 78px;
+      font-weight: 950;
+    }
+
+    .coin::after {
+      content: "";
+      position: absolute;
+      left: 122px;
+      top: 76px;
+      width: 118px;
+      height: 22px;
+      background: rgba(245, 192, 58, 0.64);
+      transform: rotate(-18deg);
+      filter: blur(2px);
+    }
+
+    .right-panel {
+      position: absolute;
+      right: 40px;
+      top: 28px;
+      z-index: 8;
+      width: 470px;
+      height: 790px;
+      padding: 28px 22px 22px;
+      border: 1px solid rgba(240, 198, 95, 0.55);
+      background: linear-gradient(180deg, rgba(20, 19, 15, 0.94), rgba(8, 11, 12, 0.88));
+      box-shadow: 0 18px 60px rgba(0,0,0,0.55), inset 0 0 36px rgba(214, 154, 45, 0.10);
+    }
+
+    .panel-title {
+      margin: 0 0 22px;
+      text-align: center;
+      color: #f7dc9b;
+      font-size: 44px;
+      font-weight: 950;
+      letter-spacing: 4px;
+    }
+
+    .reason {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      height: 58px;
+      margin-bottom: 10px;
+      padding: 0 15px;
+      border-radius: 14px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      color: #f3dfaa;
+      font-size: 23px;
+      font-weight: 760;
+    }
+
+    .reason .num {
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 900;
+      opacity: 0.98;
+    }
+
+    .reason .icon {
+      width: 32px;
+      text-align: center;
+      color: #e8bd59;
+      font-size: 26px;
+    }
+
+    .compare {
+      position: absolute;
+      left: 38px;
+      top: 600px;
+      z-index: 9;
+      width: 860px;
+      height: 220px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(143, 205, 134, 0.75);
+      background: rgba(4, 20, 12, 0.72);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.48), inset 0 0 50px rgba(55, 160, 70, 0.14);
+    }
+
+    .compare-title {
+      height: 58px;
+      display: grid;
+      place-items: center;
+      color: #bdffc3;
+      font-size: 32px;
+      font-weight: 900;
+      background: rgba(12, 52, 26, 0.72);
+      border-bottom: 1px solid rgba(139, 212, 130, 0.55);
+    }
+
+    .compare-body {
+      display: grid;
+      grid-template-columns: 1fr 130px 1fr;
+      height: 162px;
+    }
+
+    .col {
+      padding: 14px 24px;
+    }
+
+    .col h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    .good h3 {
+      color: #9dff9f;
+    }
+
+    .bad h3 {
+      color: #ff5046;
+    }
+
+    .col div {
+      margin: 5px 0;
+      color: #e6eee4;
+      font-size: 18px;
+      font-weight: 620;
+    }
+
+    .check {
+      color: #72d56f;
+      margin-right: 9px;
+      font-weight: 900;
+    }
+
+    .cross {
+      color: #ff5148;
+      margin-right: 9px;
+      font-weight: 900;
+    }
+
+    .vs {
+      display: grid;
+      place-items: center;
+      color: #f2442f;
+      font-size: 58px;
+      font-weight: 950;
+      text-shadow: 0 0 22px rgba(255,50,32,0.62);
+    }
+
+    .mindset {
+      position: absolute;
+      left: 38px;
+      bottom: 84px;
+      z-index: 9;
+      width: 860px;
+      height: 170px;
+      border-radius: 18px;
+      border: 1px solid rgba(215, 164, 57, 0.72);
+      background: rgba(20, 15, 7, 0.70);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.48), inset 0 0 45px rgba(226, 166, 48, 0.08);
+      padding: 18px 28px;
+    }
+
+    .mindset-title {
+      margin-bottom: 18px;
+      color: #f8d878;
+      font-size: 31px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-align: center;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 9px;
+      text-align: center;
+    }
+
+    .step {
+      position: relative;
+      color: #f2d47e;
+      font-size: 25px;
+      font-weight: 850;
+    }
+
+    .step::after {
+      content: ">";
+      position: absolute;
+      right: -11px;
+      top: 8px;
+      color: #bb8737;
+      font-size: 24px;
+    }
+
+    .step:last-child::after {
+      content: "";
+    }
+
+    .step span {
+      display: block;
+      margin-top: 8px;
+      color: #d8c58a;
+      font-size: 17px;
+      font-weight: 550;
+    }
+
+    .advice {
+      position: absolute;
+      left: 920px;
+      bottom: 86px;
+      z-index: 9;
+      width: 365px;
+      height: 190px;
+      padding: 26px 28px;
+      border-radius: 18px;
+      border: 1px solid rgba(215, 164, 57, 0.72);
+      background: rgba(13, 18, 15, 0.72);
+    }
+
+    .advice h3 {
+      margin: 0 0 18px;
+      color: #f8d878;
+      font-size: 31px;
+      letter-spacing: 4px;
+    }
+
+    .advice div {
+      margin: 8px 0;
+      color: #f0efd9;
+      font-size: 19px;
+      font-weight: 650;
+    }
+
+    .book-stack {
+      position: absolute;
+      right: 118px;
+      bottom: 82px;
+      z-index: 9;
+      width: 305px;
+      height: 180px;
+    }
+
+    .book {
+      position: absolute;
+      right: 0;
+      width: 250px;
+      height: 48px;
+      border-radius: 6px;
+      border: 1px solid rgba(247, 216, 120, 0.42);
+      color: #f4ddb3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.35);
+    }
+
+    .book:nth-child(1) { bottom: 0; background: #6d351c; transform: rotate(2deg); }
+    .book:nth-child(2) { bottom: 42px; background: #7a5832; transform: rotate(-1deg); }
+    .book:nth-child(3) { bottom: 84px; background: #394048; transform: rotate(2deg); }
+    .book:nth-child(4) { bottom: 126px; background: #242d34; transform: rotate(-2deg); }
+
+    .survive {
+      position: absolute;
+      right: 402px;
+      bottom: 115px;
+      z-index: 10;
+      width: 285px;
+      color: #fff2c9;
+      font-size: 33px;
+      line-height: 1.45;
+      font-weight: 500;
+      transform: rotate(-8deg);
+      text-shadow: 0 6px 16px rgba(0,0,0,0.7);
+    }
+
+    .survive strong {
+      color: #ffdf4d;
+      font-weight: 900;
+    }
+
+    .risk {
+      position: absolute;
+      left: 150px;
+      bottom: 18px;
+      z-index: 9;
+      width: 1240px;
+      color: rgba(230, 226, 207, 0.62);
+      font-size: 19px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    body {
+      background: #f7f3e8;
+    }
+
+    .poster {
+      background:
+        radial-gradient(circle at 62% 28%, rgba(237, 79, 55, 0.18), transparent 28%),
+        radial-gradient(circle at 78% 92%, rgba(218, 159, 54, 0.18), transparent 27%),
+        linear-gradient(115deg, #fffaf0 0%, #f7f3e8 48%, #eef5f2 100%);
+    }
+
+    .poster::before {
+      opacity: 0.28;
+      background-image:
+        linear-gradient(rgba(30, 45, 42, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 45, 42, 0.08) 1px, transparent 1px);
+    }
+
+    .poster::after {
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.12), transparent 42%, rgba(255,255,255,0.20)),
+        linear-gradient(0deg, rgba(255,255,255,0.10), transparent 36%, rgba(255,255,255,0.08));
+    }
+
+    .noise {
+      opacity: 0.05;
+      mix-blend-mode: multiply;
+    }
+
+    .headline {
+      text-shadow: 0 5px 14px rgba(98, 75, 34, 0.18);
+    }
+
+    .headline .white,
+    .headline .tail {
+      color: #17211f;
+    }
+
+    .red-ribbon {
+      background: linear-gradient(90deg, rgba(190, 34, 24, 0.98), rgba(190, 34, 24, 0.74), rgba(190, 34, 24, 0.12));
+      box-shadow: 0 10px 24px rgba(190, 34, 24, 0.20);
+    }
+
+    .pill {
+      color: #17384a;
+      background: rgba(255, 255, 255, 0.76);
+      border-color: rgba(69, 134, 172, 0.48);
+      box-shadow: 0 10px 24px rgba(69, 134, 172, 0.12);
+    }
+
+    .right-panel {
+      background: linear-gradient(180deg, rgba(255, 252, 242, 0.96), rgba(247, 241, 224, 0.94));
+      box-shadow: 0 18px 42px rgba(101, 78, 37, 0.18), inset 0 0 36px rgba(214, 154, 45, 0.08);
+    }
+
+    .panel-title {
+      color: #342819;
+    }
+
+    .reason {
+      background: linear-gradient(90deg, rgba(255,255,255,0.92), rgba(246,239,220,0.82));
+      color: #392b18;
+      box-shadow: 0 8px 18px rgba(102, 78, 37, 0.08);
+    }
+
+    .reason .num {
+      color: #1f2926;
+    }
+
+    .compare {
+      background: rgba(244, 255, 247, 0.90);
+      box-shadow: 0 16px 36px rgba(44, 107, 70, 0.12), inset 0 0 50px rgba(55, 160, 70, 0.08);
+    }
+
+    .compare-title {
+      color: #136630;
+      background: rgba(216, 247, 225, 0.88);
+    }
+
+    .col div {
+      color: #1e2d29;
+    }
+
+    .mindset {
+      background: rgba(255, 249, 229, 0.92);
+      box-shadow: 0 16px 36px rgba(138, 100, 31, 0.14), inset 0 0 45px rgba(226, 166, 48, 0.08);
+    }
+
+    .mindset-title,
+    .step {
+      color: #9a6712;
+    }
+
+    .step span {
+      color: #5c4a22;
+    }
+
+    .advice {
+      background: rgba(255, 251, 235, 0.94);
+      box-shadow: 0 16px 36px rgba(138, 100, 31, 0.13);
+    }
+
+    .advice h3 {
+      color: #9a6712;
+    }
+
+    .advice div {
+      color: #26312d;
+    }
+
+    .survive {
+      color: #222b28;
+      text-shadow: 0 4px 12px rgba(255,255,255,0.75);
+    }
+
+    .survive strong {
+      color: #b88207;
+    }
+
+    .book {
+      box-shadow: 0 12px 24px rgba(92, 62, 21, 0.18);
+    }
+
+    .risk {
+      color: rgba(50, 55, 51, 0.68);
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <div class="noise"></div>
+
+    <div class="candles">
+      <div class="candle" style="--x: 20px; --b: 180px; --h: 72px; --color: #36c084; --glow: rgba(54,192,132,.55);"></div>
+      <div class="candle" style="--x: 58px; --b: 132px; --h: 92px; --color: #d3312a; --glow: rgba(211,49,42,.55);"></div>
+      <div class="candle" style="--x: 96px; --b: 198px; --h: 56px; --color: #36c084; --glow: rgba(54,192,132,.55);"></div>
+      <div class="candle" style="--x: 148px; --b: 108px; --h: 122px; --color: #d3312a; --glow: rgba(211,49,42,.55);"></div>
+      <div class="candle" style="--x: 198px; --b: 168px; --h: 70px; --color: #d3312a; --glow: rgba(211,49,42,.55);"></div>
+      <div class="candle" style="--x: 256px; --b: 84px; --h: 120px; --color: #d3312a; --glow: rgba(211,49,42,.55);"></div>
+      <div class="candle" style="--x: 315px; --b: 120px; --h: 78px; --color: #36c084; --glow: rgba(54,192,132,.55);"></div>
+      <div class="candle" style="--x: 368px; --b: 64px; --h: 96px; --color: #d3312a; --glow: rgba(211,49,42,.55);"></div>
+      <div class="candle" style="--x: 430px; --b: 98px; --h: 68px; --color: #36c084; --glow: rgba(54,192,132,.55);"></div>
+      <div class="candle" style="--x: 502px; --b: 44px; --h: 104px; --color: #d3312a; --glow: rgba(211,49,42,.55);"></div>
+      <div class="candle" style="--x: 570px; --b: 70px; --h: 72px; --color: #d3312a; --glow: rgba(211,49,42,.55);"></div>
+    </div>
+
+    <div class="crash-line">
+      <div class="segment" style="left: 0; top: 34px; width: 150px; transform: rotate(36deg);"></div>
+      <div class="segment" style="left: 122px; top: 123px; width: 132px; transform: rotate(-19deg);"></div>
+      <div class="segment" style="left: 242px; top: 80px; width: 170px; transform: rotate(45deg);"></div>
+      <div class="segment" style="left: 380px; top: 204px; width: 112px; transform: rotate(-28deg);"></div>
+      <div class="segment" style="left: 480px; top: 150px; width: 180px; transform: rotate(37deg);"></div>
+    </div>
+
+    <section class="headline">
+      <span class="white">为什么</span>
+      <span class="gold">90%的人</span>
+      <span class="tail">做数字货币最后亏钱</span>
+    </section>
+
+    <div class="red-ribbon">不是市场不给机会，而是你用错了方法</div>
+    <div class="pills">
+      <div class="pill">追涨杀跌</div>
+      <div class="pill">套牢不止损</div>
+      <div class="pill">重仓梭哈</div>
+      <div class="pill">情绪交易</div>
+    </div>
+
+    <div class="trader">
+      <div class="arm-left"></div>
+      <div class="arm-right"></div>
+      <div class="body"></div>
+      <div class="head"></div>
+      <div class="hair"></div>
+    </div>
+
+    <div class="phone">
+      <div class="phone-title">合约账户</div>
+      <div class="phone-sub">全仓 100X<br />保证金余额</div>
+      <div class="loss">-18,653.21</div>
+      <div class="liquidate">强制平仓</div>
+    </div>
+    <div class="coin"></div>
+
+    <aside class="right-panel">
+      <h2 class="panel-title">亏钱的9大原因</h2>
+      <div class="reason"><span class="icon">▣</span><span class="num">01</span> 把市场当成提款机</div>
+      <div class="reason"><span class="icon">◎</span><span class="num">02</span> 只盯收益，不看风险</div>
+      <div class="reason"><span class="icon">◇</span><span class="num">03</span> 把运气误认为能力</div>
+      <div class="reason"><span class="icon">◉</span><span class="num">04</span> 太相信“消息”</div>
+      <div class="reason"><span class="icon">⚙</span><span class="num">05</span> 没有交易系统</div>
+      <div class="reason"><span class="icon">⚖</span><span class="num">06</span> 低估杠杆的杀伤力</div>
+      <div class="reason"><span class="icon">☷</span><span class="num">07</span> 没有复盘和总结</div>
+      <div class="reason"><span class="icon">◷</span><span class="num">08</span> 急着赚钱，缺乏耐心</div>
+      <div class="reason"><span class="icon">▰</span><span class="num">09</span> 不愿意慢慢变强</div>
+    </aside>
+
+    <section class="compare">
+      <div class="compare-title">赚钱靠运气，亏钱靠必然</div>
+      <div class="compare-body">
+        <div class="col good">
+          <h3>赚钱时的错觉</h3>
+          <div><span class="check">●</span>随便买都涨</div>
+          <div><span class="check">●</span>感觉自己很厉害</div>
+          <div><span class="check">●</span>幻想一夜暴富</div>
+        </div>
+        <div class="vs">VS</div>
+        <div class="col bad">
+          <h3>亏钱后的现实</h3>
+          <div><span class="cross">×</span>行情突然反转</div>
+          <div><span class="cross">×</span>被套、爆仓、心态崩溃</div>
+          <div><span class="cross">×</span>不断重复亏损</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mindset">
+      <div class="mindset-title">正确的交易思维</div>
+      <div class="steps">
+        <div class="step">认知<span>敬畏市场</span></div>
+        <div class="step">风控<span>控制风险</span></div>
+        <div class="step">系统<span>建立规则</span></div>
+        <div class="step">执行<span>纪律执行</span></div>
+        <div class="step">复盘<span>持续优化</span></div>
+        <div class="step">长期生存<span>复利增长</span></div>
+      </div>
+    </section>
+
+    <section class="advice">
+      <h3>给新手的建议</h3>
+      <div>✓ 先学习，再实战</div>
+      <div>✓ 小资金、低风险开始</div>
+      <div>✓ 不用高杠杆</div>
+      <div>✓ 建立自己的交易系统</div>
+    </section>
+
+    <div class="survive">先<strong>活下来</strong>，<br />才有机会赚到<br />后面的钱！</div>
+    <div class="book-stack">
+      <div class="book">长期主义</div>
+      <div class="book">量化思维</div>
+      <div class="book">风险管理</div>
+      <div class="book">交易系统</div>
+    </div>
+
+    <div class="risk">风险提示：数字货币价格波动剧烈，本文仅用于交易认知与风险教育，不构成任何投资建议。投资有风险，入市需谨慎。</div>
+  </main>
+</body>
+</html>

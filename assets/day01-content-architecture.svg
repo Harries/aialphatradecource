@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2200" viewBox="0 0 1600 2200">
+  <defs>
+    <style>
+      .bg { fill: #f6f7f3; }
+      .title { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-size: 66px; font-weight: 800; fill: #16211f; }
+      .subtitle { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-size: 31px; font-weight: 500; fill: #4b5b57; }
+      .section-title { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-size: 38px; font-weight: 800; fill: #16211f; }
+      .box-title { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-size: 30px; font-weight: 800; fill: #16211f; }
+      .box-text { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-size: 24px; font-weight: 500; fill: #4b5b57; }
+      .small { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-size: 22px; font-weight: 500; fill: #65716e; }
+      .white-title { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-size: 34px; font-weight: 800; fill: #ffffff; }
+      .white-text { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-size: 24px; font-weight: 500; fill: #eaf0ed; }
+      .card { fill: #ffffff; stroke: #d9ded8; stroke-width: 2; }
+      .danger { fill: #fff4f0; stroke: #e7a08e; stroke-width: 2; }
+      .action { fill: #eef7f2; stroke: #86b79b; stroke-width: 2; }
+      .core { fill: #183b34; }
+      .line { stroke: #8b9692; stroke-width: 4; fill: none; }
+      .dash { stroke: #b3bbb7; stroke-width: 3; stroke-dasharray: 12 10; fill: none; }
+      .accent-red { fill: #c94b3a; }
+      .accent-green { fill: #2f8f64; }
+      .accent-gold { fill: #d89c2d; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b9692"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#16211f" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" width="1600" height="2200"/>
+  <circle cx="1360" cy="190" r="140" fill="#e5efe9"/>
+  <circle cx="210" cy="2020" r="180" fill="#f1e8d7"/>
+  <path d="M1260 1850 C1380 1780 1500 1790 1570 1840" class="dash"/>
+  <path d="M70 360 C180 300 300 310 390 365" class="dash"/>
+
+  <text x="120" y="135" class="title">为什么90%的人做数字货币最后亏钱</text>
+  <text x="120" y="190" class="subtitle">文章内容架构图：从亏损现象，到底层机制，再到正确开始路径</text>
+
+  <g filter="url(#shadow)">
+    <rect x="120" y="255" width="1360" height="170" rx="18" class="card"/>
+    <rect x="150" y="285" width="8" height="110" rx="4" class="accent-red"/>
+    <text x="190" y="325" class="section-title">开篇问题</text>
+    <text x="190" y="370" class="box-text">数字货币市场不是没有机会，问题是多数人带着错误方式进入市场。</text>
+    <text x="190" y="405" class="box-text">本文要回答的核心问题：为什么很多人不是没赚过钱，而是最后仍然亏回去？</text>
+  </g>
+
+  <path d="M800 425 L800 505" class="line" marker-end="url(#arrow)"/>
+
+  <text x="120" y="565" class="section-title">一、八个亏钱原因</text>
+  <text x="120" y="607" class="subtitle">表面看是行情问题，本质是情绪、风险、认知和系统失控。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="120" y="650" width="650" height="135" rx="16" class="danger"/>
+    <circle cx="170" cy="700" r="20" class="accent-red"/>
+    <text x="162" y="710" class="white-text">1</text>
+    <text x="210" y="695" class="box-title">把市场当成提款机</text>
+    <text x="210" y="735" class="box-text">怕错过、跌了不甘心、套了想补仓</text>
+
+    <rect x="830" y="650" width="650" height="135" rx="16" class="danger"/>
+    <circle cx="880" cy="700" r="20" class="accent-red"/>
+    <text x="872" y="710" class="white-text">2</text>
+    <text x="920" y="695" class="box-title">只盯收益，不看风险</text>
+    <text x="920" y="735" class="box-text">不问最多亏多少，也不准备看错方向</text>
+
+    <rect x="120" y="820" width="650" height="135" rx="16" class="danger"/>
+    <circle cx="170" cy="870" r="20" class="accent-red"/>
+    <text x="162" y="880" class="white-text">3</text>
+    <text x="210" y="865" class="box-title">把运气误认为能力</text>
+    <text x="210" y="905" class="box-text">牛市顺风赚钱，却误以为自己懂市场</text>
+
+    <rect x="830" y="820" width="650" height="135" rx="16" class="danger"/>
+    <circle cx="880" cy="870" r="20" class="accent-red"/>
+    <text x="872" y="880" class="white-text">4</text>
+    <text x="920" y="865" class="box-title">太相信消息</text>
+    <text x="920" y="905" class="box-text">把未经验证的“听说”当作确定性</text>
+
+    <rect x="120" y="990" width="650" height="135" rx="16" class="danger"/>
+    <circle cx="170" cy="1040" r="20" class="accent-red"/>
+    <text x="162" y="1050" class="white-text">5</text>
+    <text x="210" y="1035" class="box-title">没有交易系统</text>
+    <text x="210" y="1075" class="box-text">每次交易都重新猜，买卖和止损无规则</text>
+
+    <rect x="830" y="990" width="650" height="135" rx="16" class="danger"/>
+    <circle cx="880" cy="1040" r="20" class="accent-red"/>
+    <text x="872" y="1050" class="white-text">6</text>
+    <text x="920" y="1035" class="box-title">低估杠杆杀伤力</text>
+    <text x="920" y="1075" class="box-text">杠杆先放大错误，再压缩容错空间</text>
+
+    <rect x="120" y="1160" width="650" height="135" rx="16" class="danger"/>
+    <circle cx="170" cy="1210" r="20" class="accent-red"/>
+    <text x="162" y="1220" class="white-text">7</text>
+    <text x="210" y="1205" class="box-title">没有复盘</text>
+    <text x="210" y="1245" class="box-text">亏损只怪运气，没有反馈就没有进步</text>
+
+    <rect x="830" y="1160" width="650" height="135" rx="16" class="danger"/>
+    <circle cx="880" cy="1210" r="20" class="accent-red"/>
+    <text x="872" y="1220" class="white-text">8</text>
+    <text x="920" y="1205" class="box-title">急着赚钱，不愿慢慢变强</text>
+    <text x="920" y="1245" class="box-text">讨厌慢，忘了长期交易先是生存游戏</text>
+  </g>
+
+  <path d="M800 1300 L800 1390" class="line" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="220" y="1405" width="1160" height="210" rx="22" class="core"/>
+    <text x="295" y="1475" class="white-title">二、底层本质</text>
+    <text x="295" y="1525" class="white-text">亏钱并不只是“行情不好”，而是：认知不足 + 风险失控 + 情绪交易 + 没有系统。</text>
+    <text x="295" y="1570" class="white-text">量化思维的价值，是把“我觉得”变成“规则、数据、回测、风控和自动化”。</text>
+  </g>
+
+  <path d="M800 1615 L800 1700" class="line" marker-end="url(#arrow)"/>
+
+  <text x="120" y="1760" class="section-title">三、普通人的正确开始路径</text>
+  <text x="120" y="1802" class="subtitle">先建立顺序，再追求收益；先活下来，再谈复利。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="120" y="1840" width="315" height="160" rx="16" class="action"/>
+    <circle cx="165" cy="1890" r="18" class="accent-green"/>
+    <text x="158" y="1899" class="white-text">1</text>
+    <text x="195" y="1888" class="box-title">远离高杠杆</text>
+    <text x="155" y="1935" class="box-text">先用小资金、现货</text>
+    <text x="155" y="1970" class="box-text">理解市场波动</text>
+
+    <rect x="475" y="1840" width="315" height="160" rx="16" class="action"/>
+    <circle cx="520" cy="1890" r="18" class="accent-green"/>
+    <text x="513" y="1899" class="white-text">2</text>
+    <text x="550" y="1888" class="box-title">避免重仓单币</text>
+    <text x="510" y="1935" class="box-text">仓位管理优先于</text>
+    <text x="510" y="1970" class="box-text">方向预测</text>
+
+    <rect x="830" y="1840" width="315" height="160" rx="16" class="action"/>
+    <circle cx="875" cy="1890" r="18" class="accent-green"/>
+    <text x="868" y="1899" class="white-text">3</text>
+    <text x="905" y="1888" class="box-title">不迷信消息</text>
+    <text x="865" y="1935" class="box-text">别人观点可参考</text>
+    <text x="865" y="1970" class="box-text">亏损只能自己承担</text>
+
+    <rect x="1185" y="1840" width="295" height="160" rx="16" class="action"/>
+    <circle cx="1230" cy="1890" r="18" class="accent-green"/>
+    <text x="1223" y="1899" class="white-text">4</text>
+    <text x="1260" y="1888" class="box-title">学习量化思维</text>
+    <text x="1220" y="1935" class="box-text">用规则减少</text>
+    <text x="1220" y="1970" class="box-text">情绪化交易</text>
+  </g>
+
+  <path d="M800 2005 L800 2065" class="line" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="220" y="2075" width="1160" height="95" rx="18" fill="#ffffff" stroke="#d89c2d" stroke-width="3"/>
+    <rect x="250" y="2104" width="8" height="42" rx="4" class="accent-gold"/>
+    <text x="285" y="2135" class="box-title">结论：在市场里，先活下来的人，才有机会赚到后面的钱。</text>
+  </g>
+</svg>
