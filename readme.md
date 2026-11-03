@@ -22,16 +22,16 @@
 | 18 | 认知基础 | Python为何统治量化 | done | [中文](articles/day18-Python为何统治量化.zh.md) | [English](articles/day18-why-python-dominates-quant-trading.en.md) |
 | 19 | 认知基础 | 如何获取BTC历史数据 | done | [中文](articles/day19-如何获取BTC历史数据.zh.md) | [English](articles/day19-how-to-get-btc-historical-data.en.md) |
 | 20 | 认知基础 | 搭建第一个量化环境 | done | [中文](articles/day20-搭建第一个量化环境.zh.md) | [English](articles/day20-build-your-first-quant-trading-environment.en.md) |
-| 21 | 认知基础 | 均线策略入门 |  |  |  |
-| 22 | 认知基础 | 均线为什么会失效 |  |  |  |
-| 23 | 认知基础 | RSI超买超卖实战 |  |  |  |
-| 24 | 认知基础 | MACD到底有没有用 |  |  |  |
-| 25 | 认知基础 | 布林带策略详解 |  |  |  |
-| 26 | 认知基础 | 网格交易原理 |  |  |  |
-| 27 | 认知基础 | 无限网格风险 |  |  |  |
-| 28 | 认知基础 | 马丁策略为什么危险 |  |  |  |
-| 29 | 认知基础 | 趋势CTA入门 |  |  |  |
-| 30 | 认知基础 | 突破策略实战 |  |  |  |
+| 21 | 认知基础 | 均线策略入门 | done | [中文](articles/day21-均线策略入门.zh.md) | [English](articles/day21-moving-average-strategy-for-beginners.en.md) |
+| 22 | 认知基础 | 均线为什么会失效 | done | [中文](articles/day22-均线为什么会失效.zh.md) | [English](articles/day22-why-moving-averages-fail.en.md) |
+| 23 | 认知基础 | RSI超买超卖实战 | done | [中文](articles/day23-RSI超买超卖实战.zh.md) | [English](articles/day23-rsi-overbought-and-oversold-in-practice.en.md) |
+| 24 | 认知基础 | MACD到底有没有用 | done | [中文](articles/day24-MACD到底有没有用.zh.md) | [English](articles/day24-is-macd-actually-useful.en.md) |
+| 25 | 认知基础 | 布林带策略详解 | done | [中文](articles/day25-布林带策略详解.zh.md) | [English](articles/day25-bollinger-bands-strategy-explained.en.md) |
+| 26 | 认知基础 | 网格交易原理 | done | [中文](articles/day26-网格交易原理.zh.md) | [English](articles/day26-how-grid-trading-works.en.md) |
+| 27 | 认知基础 | 无限网格风险 | done | [中文](articles/day27-无限网格风险.zh.md) | [English](articles/day27-risks-of-an-infinite-grid.en.md) |
+| 28 | 认知基础 | 马丁策略为什么危险 | done | [中文](articles/day28-马丁策略为什么危险.zh.md) | [English](articles/day28-why-martingale-strategies-are-dangerous.en.md) |
+| 29 | 认知基础 | 趋势CTA入门 | done | [中文](articles/day29-趋势CTA入门.zh.md) | [English](articles/day29-trend-following-cta-for-beginners.en.md) |
+| 30 | 认知基础 | 突破策略实战 | done | [中文](articles/day30-突破策略实战.zh.md) | [English](articles/day30-breakout-strategy-in-practice.en.md) |
 | 31 | 策略与风控 | 移动止盈怎么设计 |  |  |  |
 | 32 | 策略与风控 | 组合策略比单策略强吗 |  |  |  |
 | 33 | 策略与风控 | 如何降低回撤 |  |  |  |
